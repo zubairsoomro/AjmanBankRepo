@@ -1,0 +1,54 @@
+Project Analysis:
+
+1)image: mcr.microsoft.com/dotnet/sdk:6.0 /1+1+1+1+1+1+1
+
+
+
+error MSB4019: The imported project "/usr/share/dotnet/sdk/6.0.400/Microsoft/VisualStudio/v17.0/WebApplications/Microsoft.WebApplication.targets" was not found. 
+Confirm that the expression in the Import declaration "/usr/share/dotnet/sdk/6.0.400/Microsoft/VisualStudio/v17.0/WebApplications/Microsoft.WebApplication.targets" is correct, and that the file exists on disk.
+    0 Warning(s)
+    1 Error(s)
+
+2)#image: mcr.microsoft.com/dotnet/framework/sdk:4.8
+image: mcr.microsoft.com/dotnet/framework/aspnet:4.8 /1
+image: mcr.microsoft.com/dotnet/framework/aspnet:4.7
+image: mcr.microsoft.com/dotnet/framework/aspnet:4.8-amd64 /1
+"mcr.microsoft.com/dotnet-framework:3.5"
+image: "mcr.microsoft.com/dotnet/framework/sdk:3.5"
+
+rpc error: code = NotFound desc = failed to pull and unpack image "mcr.microsoft.com/dotnet/framework/aspnet:4.8": no match for platform in manifest: not found
+
+3)image: mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp-windowsservercore-ltsc2019
+image: mcr.microsoft.com/windows/servercore:lts2019
+
+rpc error: code = Unknown desc = failed to pull and unpack image "mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019": failed to extract layer 
+sha256:1b45f33405d020d92048301e0e63a2c5e7cc408faeba3fd7bf931e980ae36ba3: 
+link /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/7110/fs/Files/Program Files/common files/Microsoft Shared/Ink/en-US/micaut.dll.mui 
+/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/7110/fs/Files/Program Files (x86)/common files/Microsoft Shared/ink/en-US/micaut.dll.mui:
+ no such file or directory: unknown
+
+image: docker pull mcr.microsoft.com/dotnet/framework/aspnet:4.8.1 /1+1
+There is a problem with the format of your docker image name at [image > name].
+
+image: mcr.microsoft.com/dotnet/framework/wcf:4.8
+rpc error: code = NotFound desc = failed to pull and unpack image "mcr.microsoft.com/dotnet/framework/wcf:4.8": no match for platform in manifest: not found
+
+image: mcr.microsoft.com/dotnet/runtime-deps:7.0 
++ sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+bash: sudo: command not found
+
+
+image: mcr.microsoft.com/dotnet/nightly/aspnet:6.0
+image: mcr.microsoft.com/dotnet/aspnet:5.0
+
++ dotnet tool install --global dotnet-sonarscanner
+The command could not be loaded, possibly because:
+  * You intended to execute a .NET application:
+      The application 'tool' does not exist.
+  * You intended to execute a .NET SDK command:
+      No .NET SDKs were found.
+Download a .NET SDK:
+https://aka.ms/dotnet-download
+Learn about SDK resolution:
+https://aka.ms/dotnet/sdk-not-found
